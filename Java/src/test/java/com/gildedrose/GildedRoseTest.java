@@ -13,4 +13,12 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals("foo", app.items[0].name);
     }
+
+    @Test
+    void _updateQualityを実行するとsellIn値が1減る() {
+        Item[] items = new Item[] { new Item("foo", 10, 20) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(9, app.items[0].sellIn);
+    }
 }
