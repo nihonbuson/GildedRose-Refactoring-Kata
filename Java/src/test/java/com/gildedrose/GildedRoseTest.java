@@ -29,4 +29,28 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(19, app.items[0].quality);
     }
+
+    @Test
+    void _Aged_BrieのitemでupdateQualityを実行してもitem名が変わらない() {
+        Item[] items = new Item[] { new Item("Aged Brie", 10, 20) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Aged Brie", app.items[0].name);
+    }
+
+    @Test
+    void _Aged_BrieのitemでupdateQualityを実行するとsellIn値が1減る() {
+        Item[] items = new Item[] { new Item("Aged Brie", 10, 20) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(9, app.items[0].sellIn);
+    }
+
+    @Test
+    void _Aged_BrieのitemでupdateQualityを実行するとquality値が1増える() {
+        Item[] items = new Item[] { new Item("Aged Brie", 10, 20) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(21, app.items[0].quality);
+    }
 }
