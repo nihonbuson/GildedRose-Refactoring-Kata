@@ -9,12 +9,11 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
-            updateItem(i);
+            updateItem(items[i]);
         }
     }
 
-    private void updateItem(int i) {
-        Item item = items[i];
+    private void updateItem(Item item) {
         if (!item.name.equals("Aged Brie")
                 && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (item.quality > 0) {
