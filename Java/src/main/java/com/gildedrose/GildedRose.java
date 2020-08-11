@@ -22,41 +22,53 @@ class GildedRose {
         item.sellIn = item.sellIn - 1;
 
         if (isAgedBrie(item)) {
-            if (item.quality < 50) {
-                increaseQuality(item);
+            updateAgedBrieQuality(item);
+        } else if (isBackstagePass(item)) {
+            updateBackstageQuality(item);
+        } else {
+            updateNormalQuality(item);
+        }
+    }
+
+    private void updateNormalQuality(Item item) {
+        if (item.quality > 0) {
+            decreaseQuality(item);
+        }
+        if (item.sellIn < 0) {
+            if (item.quality > 0) {
+                decreaseQuality(item);
             }
-            if (item.sellIn < 0) {
+        }
+    }
+
+    private void updateBackstageQuality(Item item) {
+        if (item.quality < 50) {
+            increaseQuality(item);
+
+            if (item.sellIn < 10) {
                 if (item.quality < 50) {
                     increaseQuality(item);
                 }
             }
-        } else if (isBackstagePass(item)) {
+
+            if (item.sellIn < 5) {
+                if (item.quality < 50) {
+                    increaseQuality(item);
+                }
+            }
+        }
+        if (item.sellIn < 0) {
+            item.quality = 0;
+        }
+    }
+
+    private void updateAgedBrieQuality(Item item) {
+        if (item.quality < 50) {
+            increaseQuality(item);
+        }
+        if (item.sellIn < 0) {
             if (item.quality < 50) {
                 increaseQuality(item);
-
-                if (item.sellIn < 10) {
-                    if (item.quality < 50) {
-                        increaseQuality(item);
-                    }
-                }
-
-                if (item.sellIn < 5) {
-                    if (item.quality < 50) {
-                        increaseQuality(item);
-                    }
-                }
-            }
-            if (item.sellIn < 0) {
-                item.quality = 0;
-            }
-        } else {
-            if (item.quality > 0) {
-                decreaseQuality(item);
-            }
-            if (item.sellIn < 0) {
-                if (item.quality > 0) {
-                    decreaseQuality(item);
-                }
             }
         }
     }
