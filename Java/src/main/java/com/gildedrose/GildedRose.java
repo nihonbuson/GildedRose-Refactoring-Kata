@@ -44,9 +44,7 @@ class GildedRose {
             }
         }
 
-        item.sellIn = item.sellIn - 1;
-
-        if (item.sellIn < 0) {
+        if (item.sellIn < 1) {
             if (isAgedBrie(item)) {
                 if (item.quality < 50) {
                     increaseQuality(item);
@@ -61,6 +59,8 @@ class GildedRose {
                 }
             }
         }
+
+        item.sellIn = item.sellIn - 1;
     }
 
     private void updateSulfurasItem(Item item) {
