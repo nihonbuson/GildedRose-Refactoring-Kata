@@ -25,6 +25,11 @@ class GildedRose {
             if (item.quality < 50) {
                 increaseQuality(item);
             }
+            if (item.sellIn < 0) {
+                if (item.quality < 50) {
+                    increaseQuality(item);
+                }
+            }
         } else if (isBackstagePass(item)) {
             if (item.quality < 50) {
                 increaseQuality(item);
@@ -48,11 +53,6 @@ class GildedRose {
         }
 
         if (isAgedBrie(item)) {
-            if (item.sellIn < 0) {
-                if (item.quality < 50) {
-                    increaseQuality(item);
-                }
-            }
         } else {
             if (isBackstagePass(item)) {
                 if (item.sellIn < 0) {
