@@ -40,15 +40,11 @@ class GildedRose {
             }
         } else {
             if (item.quality > 0) {
-                if (!isSulfuras(item)) {
-                    decreaseQuality(item);
-                }
+                decreaseQuality(item);
             }
         }
 
-        if (!isSulfuras(item)) {
-            item.sellIn = item.sellIn - 1;
-        }
+        item.sellIn = item.sellIn - 1;
 
         if (item.sellIn < 0) {
             if (isAgedBrie(item)) {
@@ -60,9 +56,7 @@ class GildedRose {
                     item.quality = 0;
                 } else {
                     if (item.quality > 0) {
-                        if (!isSulfuras(item)) {
-                            decreaseQuality(item);
-                        }
+                        decreaseQuality(item);
                     }
                 }
             }
