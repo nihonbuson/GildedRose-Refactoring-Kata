@@ -47,25 +47,25 @@ class GildedRose {
             }
         }
 
-            if (isAgedBrie(item)) {
+        if (isAgedBrie(item)) {
+            if (item.sellIn < 0) {
+                if (item.quality < 50) {
+                    increaseQuality(item);
+                }
+            }
+        } else {
+            if (isBackstagePass(item)) {
                 if (item.sellIn < 0) {
-                    if (item.quality < 50) {
-                        increaseQuality(item);
-                    }
+                    item.quality = 0;
                 }
             } else {
-                if (isBackstagePass(item)) {
-                    if (item.sellIn < 0) {
-                        item.quality = 0;
-                    }
-                } else {
-                    if (item.sellIn < 0) {
-                        if (item.quality > 0) {
-                            decreaseQuality(item);
-                        }
+                if (item.sellIn < 0) {
+                    if (item.quality > 0) {
+                        decreaseQuality(item);
                     }
                 }
             }
+        }
     }
 
     private void updateSulfurasItem(Item item) {
