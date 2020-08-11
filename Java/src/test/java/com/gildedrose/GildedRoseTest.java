@@ -33,14 +33,14 @@ class GildedRoseTest {
             assertEquals(19, app.items[0].quality);
         }
         @Test
-        void _sellIn値が0の時uupdateQualityを実行するとquality値が2減る() {
+        void _sellIn値が0の時updateQualityを実行するとquality値が2減る() {
             Item[] items = new Item[] { new Item("foo", 0, 20) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(18, app.items[0].quality);
         }
         @Test
-        void _sellIn値が1の時uupdateQualityを実行するとquality値が1減る() {
+        void _sellIn値が1の時updateQualityを実行するとquality値が1減る() {
             Item[] items = new Item[] { new Item("foo", 1, 20) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
