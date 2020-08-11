@@ -61,4 +61,30 @@ class GildedRoseTest {
         }
     }
 
+    @Nested
+    class _SulfurasのItem{
+        @Test
+        void _SulfurasのitemでupdateQualityを実行してもitem名が変わらない() {
+            Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 10, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals("Sulfuras, Hand of Ragnaros", app.items[0].name);
+        }
+
+        @Test
+        void _SulfurasのitemでupdateQualityを実行してもsellIn値は増減しない() {
+            Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 10, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(10, app.items[0].sellIn);
+        }
+
+        @Test
+        void _SulfurasのitemでupdateQualityを実行してもquality値は増減しない() {
+            Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 10, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(20, app.items[0].quality);
+        }
+    }
 }
