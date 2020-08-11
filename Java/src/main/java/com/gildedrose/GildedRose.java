@@ -19,13 +19,15 @@ class GildedRose {
             return;
         }
 
-        decreaseSellIn(item);
 
         if (isAgedBrie(item)) {
+            decreaseSellIn(item);
             updateAgedBrieQuality(item);
         } else if (isBackstagePass(item)) {
+            decreaseSellIn(item);
             updateBackstageQuality(item);
         } else {
+            decreaseSellIn(item);
             updateNormalQuality(item);
         }
     }
