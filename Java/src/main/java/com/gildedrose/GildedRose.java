@@ -19,7 +19,7 @@ class GildedRose {
             return;
         }
 
-        item.sellIn = item.sellIn - 1;
+        decreaseSellIn(item);
 
         if (isAgedBrie(item)) {
             updateAgedBrieQuality(item);
@@ -28,6 +28,10 @@ class GildedRose {
         } else {
             updateNormalQuality(item);
         }
+    }
+
+    private void decreaseSellIn(Item item) {
+        item.sellIn = item.sellIn - 1;
     }
 
     private void updateNormalQuality(Item item) {
