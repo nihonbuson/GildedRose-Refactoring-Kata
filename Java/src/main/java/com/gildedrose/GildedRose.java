@@ -14,6 +14,11 @@ class GildedRose {
     }
 
     private void updateItem(Item item) {
+        if(isSulfuras(item)){
+            updateSulfurasItem(item);
+            return;
+        }
+
         if (isAgedBrie(item)
                 || isBackstagePass(item)) {
             if (item.quality < 50) {
@@ -62,6 +67,10 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private void updateSulfurasItem(Item item) {
+
     }
 
     private boolean isSulfuras(Item item) {
