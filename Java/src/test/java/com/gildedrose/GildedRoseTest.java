@@ -59,6 +59,21 @@ class GildedRoseTest {
             app.updateQuality();
             assertEquals(21, app.items[0].quality);
         }
+
+        @Test
+        void _Aged_BrieのitemでsellIn値が0の時updateQualityを実行するとquality値が2増える() {
+            Item[] items = new Item[] { new Item("Aged Brie", 0, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(22, app.items[0].quality);
+        }
+        @Test
+        void _Aged_BrieのitemでsellIn値が1の時updateQualityを実行するとquality値が1増える() {
+            Item[] items = new Item[] { new Item("Aged Brie", 1, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(21, app.items[0].quality);
+        }
     }
 
     @Nested
@@ -85,6 +100,20 @@ class GildedRoseTest {
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(21, app.items[0].quality);
+        }
+        @Test
+        void _BackstageのitemでsellIn値が0の時updateQualityを実行するとquality値が1増える() {
+            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(0, app.items[0].quality);
+        }
+        @Test
+        void _BackstageのitemでsellIn値が1の時updateQualityを実行するとquality値が3増える() {
+            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 1, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(23, app.items[0].quality);
         }
     }
 
