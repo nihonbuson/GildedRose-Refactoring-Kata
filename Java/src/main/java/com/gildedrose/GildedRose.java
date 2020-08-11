@@ -18,18 +18,18 @@ class GildedRose {
             updateSulfurasItem(item);
             return;
         }
-
-
         if (isAgedBrie(item)) {
             decreaseSellIn(item);
             updateAgedBrieQuality(item);
-        } else if (isBackstagePass(item)) {
+            return;
+        }
+        if (isBackstagePass(item)) {
             decreaseSellIn(item);
             updateBackstageQuality(item);
-        } else {
+            return;
+        }
             decreaseSellIn(item);
             updateNormalQuality(item);
-        }
     }
 
     private void decreaseSellIn(Item item) {
