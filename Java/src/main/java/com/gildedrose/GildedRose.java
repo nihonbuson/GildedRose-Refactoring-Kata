@@ -14,26 +14,17 @@ class GildedRose {
     }
 
     private void updateItem(Item item) {
+        UpdateItemLogic updateItemLogic = new UpdateNormalItemLogic();
         if (isSulfuras(item)) {
-            UpdateItemLogic updateItemLogic = new UpdateSulfurasItemLogic();
-            updateItemLogic.updateSellIn(item);
-            updateItemLogic.updateQuality(item);
-            return;
+            updateItemLogic = new UpdateSulfurasItemLogic();
         }
         if (isAgedBrie(item)) {
-            UpdateItemLogic updateItemLogic = new UpdateAgedBrieItemLogic();
-            updateItemLogic.updateSellIn(item);
-            updateItemLogic.updateQuality(item);
-            return;
+            updateItemLogic = new UpdateAgedBrieItemLogic();
         }
         if (isBackstagePass(item)) {
-            UpdateItemLogic updateItemLogic = new UpdateBackstagePassItemLogic();
-            updateItemLogic.updateSellIn(item);
-            updateItemLogic.updateQuality(item);
-            return;
+            updateItemLogic = new UpdateBackstagePassItemLogic();
         }
 
-        UpdateItemLogic updateItemLogic = new UpdateNormalItemLogic();
         updateItemLogic.updateSellIn(item);
         updateItemLogic.updateQuality(item);
     }
