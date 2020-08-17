@@ -30,4 +30,12 @@ public class Item {
     void decreaseSellIn() {
         sellIn = sellIn - 1;
     }
+
+    boolean isMaxQuality() {
+        return quality >= 50;
+    }
+
+    boolean isMinQuality() {
+        return quality <= 0;
+    }
 }

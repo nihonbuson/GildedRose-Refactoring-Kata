@@ -8,11 +8,11 @@ public class UpdateAgedBrieItemLogic implements UpdateItemLogic {
 
     @Override
     public void updateQuality(Item item) {
-        if (item.quality < 50) {
+        if (!item.isMaxQuality()) {
             item.increaseQuality();
         }
         if (item.sellIn < 0) {
-            if (item.quality < 50) {
+            if (!item.isMaxQuality()) {
                 item.increaseQuality();
             }
         }
