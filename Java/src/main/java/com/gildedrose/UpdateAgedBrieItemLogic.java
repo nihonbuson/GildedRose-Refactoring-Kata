@@ -11,7 +11,7 @@ public class UpdateAgedBrieItemLogic implements UpdateItemLogic {
         if (!item.isMaxQuality()) {
             item.increaseQuality();
         }
-        if (item.sellIn < 0) {
+        if (!item.isWithinSales()) {
             if (!item.isMaxQuality()) {
                 item.increaseQuality();
             }

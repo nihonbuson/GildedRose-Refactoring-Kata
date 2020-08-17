@@ -38,4 +38,8 @@ public class Item {
     boolean isMinQuality() {
         return quality <= 0;
     }
+
+    boolean isWithinSales() {
+        return sellIn >= 0;
+    }
 }

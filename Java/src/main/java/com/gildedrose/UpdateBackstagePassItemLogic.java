@@ -23,7 +23,7 @@ public class UpdateBackstagePassItemLogic implements UpdateItemLogic {
                 }
             }
         }
-        if (item.sellIn < 0) {
+        if (!item.isWithinSales()) {
             item.quality = 0;
         }
     }
