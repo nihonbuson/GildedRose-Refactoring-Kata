@@ -3,7 +3,7 @@ package com.gildedrose;
 public class UpdateBackstagePassItemLogic implements UpdateItemLogic {
     @Override
     public void updateSellIn(Item item) {
-        item.sellIn = item.sellIn - 1;
+        item.decreaseSellIn();
     }
 
     @Override
