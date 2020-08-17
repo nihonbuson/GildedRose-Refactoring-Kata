@@ -28,8 +28,12 @@ class GildedRose {
             updateBackstageQuality(item);
             return;
         }
-            decreaseSellIn(item);
-            updateNormalQuality(item);
+
+        UpdateItemLogic updateItemLogic = new UpdateNormalItemLogic();
+        updateItemLogic.updateSellIn(item);
+        updateItemLogic.updateQuality(item);
+//            decreaseSellIn(item);
+//            updateNormalQuality(item);
     }
 
     private void decreaseSellIn(Item item) {
