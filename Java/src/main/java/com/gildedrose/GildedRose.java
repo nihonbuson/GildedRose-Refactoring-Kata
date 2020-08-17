@@ -19,8 +19,11 @@ class GildedRose {
             return;
         }
         if (isAgedBrie(item)) {
-            decreaseSellIn(item);
-            updateAgedBrieQuality(item);
+            UpdateItemLogic updateItemLogic = new UpdateAgedBrieItemLogic();
+            updateItemLogic.updateSellIn(item);
+            updateItemLogic.updateQuality(item);
+//            decreaseSellIn(item);
+//            updateAgedBrieQuality(item);
             return;
         }
         if (isBackstagePass(item)) {
