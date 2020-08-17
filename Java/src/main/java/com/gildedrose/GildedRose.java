@@ -15,7 +15,9 @@ class GildedRose {
 
     private void updateItem(Item item) {
         if (isSulfuras(item)) {
-            updateSulfurasItem(item);
+            UpdateItemLogic updateItemLogic = new UpdateSulfurasItemLogic();
+            updateItemLogic.updateSellIn(item);
+            updateItemLogic.updateQuality(item);
             return;
         }
         if (isAgedBrie(item)) {
@@ -25,8 +27,9 @@ class GildedRose {
             return;
         }
         if (isBackstagePass(item)) {
-            decreaseSellIn(item);
-            updateBackstageQuality(item);
+            UpdateItemLogic updateItemLogic = new UpdateBackstagePassItemLogic();
+            updateItemLogic.updateSellIn(item);
+            updateItemLogic.updateQuality(item);
             return;
         }
 
