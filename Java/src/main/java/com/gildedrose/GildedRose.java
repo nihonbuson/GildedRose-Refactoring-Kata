@@ -22,8 +22,6 @@ class GildedRose {
             UpdateItemLogic updateItemLogic = new UpdateAgedBrieItemLogic();
             updateItemLogic.updateSellIn(item);
             updateItemLogic.updateQuality(item);
-//            decreaseSellIn(item);
-//            updateAgedBrieQuality(item);
             return;
         }
         if (isBackstagePass(item)) {
@@ -35,8 +33,6 @@ class GildedRose {
         UpdateItemLogic updateItemLogic = new UpdateNormalItemLogic();
         updateItemLogic.updateSellIn(item);
         updateItemLogic.updateQuality(item);
-//            decreaseSellIn(item);
-//            updateNormalQuality(item);
     }
 
     private void decreaseSellIn(Item item) {
