@@ -9,16 +9,13 @@ public class UpdateAgedBrieItemLogic implements UpdateItemLogic {
     @Override
     public void updateQuality(Item item) {
         if (item.quality < 50) {
-            increaseQuality(item);
+            item.increaseQuality();
         }
         if (item.sellIn < 0) {
             if (item.quality < 50) {
-                increaseQuality(item);
+                item.increaseQuality();
             }
         }
     }
 
-    private void increaseQuality(Item item) {
-        item.quality = item.quality + 1;
-    }
 }

@@ -9,16 +9,13 @@ public class UpdateNormalItemLogic implements UpdateItemLogic {
     @Override
     public void updateQuality(Item item) {
         if (item.quality > 0) {
-            decreaseQuality(item);
+            item.decreaseQuality();
         }
         if (item.sellIn < 0) {
             if (item.quality > 0) {
-                decreaseQuality(item);
+                item.decreaseQuality();
             }
         }
     }
 
-    private void decreaseQuality(Item item) {
-        item.quality = item.quality - 1;
-    }
 }

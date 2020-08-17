@@ -9,17 +9,17 @@ public class UpdateBackstagePassItemLogic implements UpdateItemLogic {
     @Override
     public void updateQuality(Item item) {
         if (item.quality < 50) {
-            increaseQuality(item);
+            item.increaseQuality();
 
             if (item.sellIn < 10) {
                 if (item.quality < 50) {
-                    increaseQuality(item);
+                    item.increaseQuality();
                 }
             }
 
             if (item.sellIn < 5) {
                 if (item.quality < 50) {
-                    increaseQuality(item);
+                    item.increaseQuality();
                 }
             }
         }
@@ -28,7 +28,4 @@ public class UpdateBackstagePassItemLogic implements UpdateItemLogic {
         }
     }
 
-    private void increaseQuality(Item item) {
-        item.quality = item.quality + 1;
-    }
 }
