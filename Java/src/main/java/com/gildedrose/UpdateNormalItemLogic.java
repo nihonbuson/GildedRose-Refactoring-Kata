@@ -18,7 +18,7 @@ public class UpdateNormalItemLogic implements UpdateItemLogic {
         }
     }
 
-    void decreaseQuality(Item item) {
+    private void decreaseQuality(Item item) {
         item.quality = item.quality - 1;
     }
 }

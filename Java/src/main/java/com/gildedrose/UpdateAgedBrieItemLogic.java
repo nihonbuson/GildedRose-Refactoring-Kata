@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class UpdateAgedBrieItemLogicImpl implements UpdateItemLogic {
+public class UpdateAgedBrieItemLogic implements UpdateItemLogic {
     @Override
     public void updateSellIn(Item item) {
         item.sellIn = item.sellIn - 1;
