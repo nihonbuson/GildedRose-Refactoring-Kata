@@ -11,7 +11,7 @@ public class UpdateNormalItemLogic implements UpdateItemLogic {
         if (item.isPlusValue()) {
             item.decreaseQuality();
         }
-        if (!item.isWithinSales()) {
+        if ((item.isWithinSales()) == false) {
             if (item.isPlusValue()) {
                 item.decreaseQuality();
             }
