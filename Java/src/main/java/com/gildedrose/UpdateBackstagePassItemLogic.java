@@ -8,17 +8,17 @@ public class UpdateBackstagePassItemLogic implements UpdateItemLogic {
 
     @Override
     public void updateQuality(Item item) {
-        if (!item.isMaxQuality()) {
+        if (item.isLessMaxValue()) {
             item.increaseQuality();
 
             if (item.sellIn < 10) {
-                if (!item.isMaxQuality()) {
+                if (item.isLessMaxValue()) {
                     item.increaseQuality();
                 }
             }
 
             if (item.sellIn < 5) {
-                if (!item.isMaxQuality()) {
+                if (item.isLessMaxValue()) {
                     item.increaseQuality();
                 }
             }

@@ -8,11 +8,11 @@ public class UpdateNormalItemLogic implements UpdateItemLogic {
 
     @Override
     public void updateQuality(Item item) {
-        if (!item.isMinQuality()) {
+        if (item.isPlusValue()) {
             item.decreaseQuality();
         }
         if (!item.isWithinSales()) {
-            if (!item.isMinQuality()) {
+            if (item.isPlusValue()) {
                 item.decreaseQuality();
             }
         }

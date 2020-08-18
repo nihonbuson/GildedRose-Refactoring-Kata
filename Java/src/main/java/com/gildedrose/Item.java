@@ -31,12 +31,12 @@ public class Item {
         sellIn = sellIn - 1;
     }
 
-    boolean isMaxQuality() {
-        return quality >= 50;
+    boolean isLessMaxValue() {
+        return quality < 50;
     }
 
-    boolean isMinQuality() {
-        return quality <= 0;
+    boolean isPlusValue() {
+        return quality > 0;
     }
 
     boolean isWithinSales() {
