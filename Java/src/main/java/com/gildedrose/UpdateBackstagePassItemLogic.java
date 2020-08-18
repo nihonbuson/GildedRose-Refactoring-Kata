@@ -11,13 +11,13 @@ public class UpdateBackstagePassItemLogic implements UpdateItemLogic {
         if (item.isLessMaxValue()) {
             item.increaseQuality();
 
-            if (item.sellIn < 10) {
+            if (isWithInDaysRemaining(item, 10)) {
                 if (item.isLessMaxValue()) {
                     item.increaseQuality();
                 }
             }
 
-            if (item.sellIn < 5) {
+            if (isWithInDaysRemaining(item, 5)) {
                 if (item.isLessMaxValue()) {
                     item.increaseQuality();
                 }
@@ -26,6 +26,10 @@ public class UpdateBackstagePassItemLogic implements UpdateItemLogic {
         if ((item.isWithinSales()) == false) {
             item.quality = 0;
         }
+    }
+
+    private boolean isWithInDaysRemaining(Item item, int i) {
+        return item.sellIn < i;
     }
 
 }
