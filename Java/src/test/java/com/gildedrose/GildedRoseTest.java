@@ -32,21 +32,48 @@ class GildedRoseTest {
             app.updateQuality();
             assertEquals(19, app.items[0].quality);
         }
+
         @Test
-        void _sellIn値が0の時updateQualityを実行するとquality値が2減る() {
-            Item[] items = new Item[] { new Item("foo", 0, 20) };
+        void _Quality値が1の時にupdateQualityを実行するとquality値が1減る() {
+            Item[] items = new Item[] { new Item("foo", 10, 1) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
-            assertEquals(18, app.items[0].quality);
+            assertEquals(0, app.items[0].quality);
         }
+
         @Test
-        void _sellIn値が1の時updateQualityを実行するとquality値が1減る() {
+        void _Quality値が0の時にupdateQualityを実行するとquality値が変わらない() {
+            Item[] items = new Item[] { new Item("foo", 10, 0) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(0, app.items[0].quality);
+        }
+
+        @Test
+        void _SellIn値が1の時にupdateQualityを実行するとquality値が1減る() {
             Item[] items = new Item[] { new Item("foo", 1, 20) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(19, app.items[0].quality);
         }
+
+        @Test
+        void _SellIn値が0の時にupdateQualityを実行するとquality値が2減る() {
+            Item[] items = new Item[] { new Item("foo", 0, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(18, app.items[0].quality);
+        }
+
+        @Test
+        void _SellIn値が0でQuality値が1の時にupdateQualityを実行するとquality値がマイナスにはならず0になる() {
+            Item[] items = new Item[] { new Item("foo", 1, 1) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(0, app.items[0].quality);
+        }
     }
+
 
     @Nested
     class _Aged_BrieのItem{
@@ -68,25 +95,42 @@ class GildedRoseTest {
 
         @Test
         void _Aged_BrieのitemでupdateQualityを実行するとquality値が1増える() {
-            Item[] items = new Item[] { new Item("Aged Brie", 10, 20) };
+            Item[] items = new Item[] { new Item("Aged Brie", 10, 49) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(50, app.items[0].quality);
+        }
+
+        @Test
+        void _Aged_BrieのitemでQuality値が50以上だった時にupdateQualityを実行するとquality値が変わらない() {
+            Item[] items = new Item[] { new Item("Aged Brie", 10, 50) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(50, app.items[0].quality);
+        }
+
+        @Test
+        void _Aged_BrieのitemでSellIn値が1の時にupdateQualityを実行するとquality値が1増える() {
+            Item[] items = new Item[] { new Item("Aged Brie", 1, 20) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(21, app.items[0].quality);
         }
 
         @Test
-        void _Aged_BrieのitemでsellIn値が0の時updateQualityを実行するとquality値が2増える() {
+        void _Aged_BrieのitemでSellIn値が0の時にupdateQualityを実行するとquality値が2増える() {
             Item[] items = new Item[] { new Item("Aged Brie", 0, 20) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(22, app.items[0].quality);
         }
+
         @Test
-        void _Aged_BrieのitemでsellIn値が1の時updateQualityを実行するとquality値が1増える() {
-            Item[] items = new Item[] { new Item("Aged Brie", 1, 20) };
+        void _Aged_BrieのitemでSellIn値が0_Quality値が49の時にupdateQualityを実行するとquality値が50になる() {
+            Item[] items = new Item[] { new Item("Aged Brie", 0, 49) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
-            assertEquals(21, app.items[0].quality);
+            assertEquals(50, app.items[0].quality);
         }
     }
 
@@ -109,53 +153,59 @@ class GildedRoseTest {
         }
 
         @Test
-        void _BackstageのitemでupdateQualityを実行するとquality値が1増える() {
-            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20) };
+        void _BackstageのitemでSellIn値が11以上だった時にupdateQualityを実行するとquality値が1増える() {
+            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(21, app.items[0].quality);
         }
+
         @Test
-        void _BackstageのitemでsellIn値が0の時updateQualityを実行するとquality値が1増える() {
-            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20) };
-            GildedRose app = new GildedRose(items);
-            app.updateQuality();
-            assertEquals(0, app.items[0].quality);
-        }
-        @Test
-        void _BackstageのitemでsellIn値が1の時updateQualityを実行するとquality値が3増える() {
-            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 1, 20) };
-            GildedRose app = new GildedRose(items);
-            app.updateQuality();
-            assertEquals(23, app.items[0].quality);
-        }
-        @Test
-        void _BackstageのitemでsellIn値が5の時updateQualityを実行するとquality値が3増える() {
-            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20) };
-            GildedRose app = new GildedRose(items);
-            app.updateQuality();
-            assertEquals(23, app.items[0].quality);
-        }
-        @Test
-        void _BackstageのitemでsellIn値が6の時updateQualityを実行するとquality値が2増える() {
-            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 6, 20) };
-            GildedRose app = new GildedRose(items);
-            app.updateQuality();
-            assertEquals(22, app.items[0].quality);
-        }
-        @Test
-        void _BackstageのitemでsellIn値が10の時updateQualityを実行するとquality値が2増える() {
+        void _BackstageのitemでSellIn値が10以下だった時にupdateQualityを実行するとquality値が2増える() {
             Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(22, app.items[0].quality);
         }
+
         @Test
-        void _BackstageのitemでsellIn値が11の時updateQualityを実行するとquality値が1増える() {
-            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20) };
+        void _BackstageのitemでSellIn値が6以上だった時にupdateQualityを実行するとquality値が2増える() {
+            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 6, 20) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
-            assertEquals(21, app.items[0].quality);
+            assertEquals(22, app.items[0].quality);
+        }
+
+        @Test
+        void _BackstageのitemでSellIn値が5以下だった時にupdateQualityを実行するとquality値が3増える() {
+            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(23, app.items[0].quality);
+        }
+
+        @Test
+        void _BackstageのitemでQuality値が50以上だった時にupdateQualityを実行するとquality値が変わらない() {
+            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(50, app.items[0].quality);
+        }
+
+        @Test
+        void _BackstageのitemでSellIn値が1の時にupdateQualityを実行するとquality値が3増える() {
+            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 1, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(23, app.items[0].quality);
+        }
+
+        @Test
+        void _BackstageのitemでSellIn値が0の時にupdateQualityを実行するとquality値が0になる() {
+            Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(0, app.items[0].quality);
         }
     }
 
