@@ -234,16 +234,24 @@ class GildedRoseTest {
             app.updateQuality();
             assertEquals(20, app.items[0].quality);
         }
+    }
 
-        @Nested
-        class _ConjuredのItem{
-            @Test
-            void _ConjuredのItemでupdateQualityを実行してもitem名が変わらない() {
-                Item[] items = new Item[] { new Item("Conjured", 10, 20) };
-                GildedRose app = new GildedRose(items);
-                app.updateQuality();
-                assertEquals("Conjured", app.items[0].name);
-            }
+    @Nested
+    class _ConjuredのItem{
+        @Test
+        void _ConjuredのItemでupdateQualityを実行してもitem名が変わらない() {
+            Item[] items = new Item[] { new Item("Conjured", 10, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals("Conjured", app.items[0].name);
+        }
+
+        @Test
+        void _ConjuredのItemでupdateQualityを実行するとsellIn値が1減る() {
+            Item[] items = new Item[] { new Item("Conjured", 10, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(9, app.items[0].sellIn);
         }
     }
 }
