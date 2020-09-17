@@ -253,5 +253,13 @@ class GildedRoseTest {
             app.updateQuality();
             assertEquals(9, app.items[0].sellIn);
         }
+
+        @Test
+        void _ConjuredのItemでupdateQualityを実行するとquality値が2減る() {
+            Item[] items = new Item[] { new Item("Conjured", 10, 20) };
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(18, app.items[0].quality);
+        }
     }
 }
