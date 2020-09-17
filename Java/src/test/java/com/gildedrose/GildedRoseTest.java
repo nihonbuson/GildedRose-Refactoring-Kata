@@ -242,7 +242,7 @@ class GildedRoseTest {
                 Item[] items = new Item[] { new Item("Conjured", 10, 20) };
                 GildedRose app = new GildedRose(items);
                 app.updateQuality();
-                assertEquals("Conjured", app.items[0].name);
+                assertEquals("Conjured fail test case", app.items[0].name);
             }
         }
     }
