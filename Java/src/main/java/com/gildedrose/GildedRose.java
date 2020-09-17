@@ -35,6 +35,10 @@ class GildedRose {
         return new UpdateNormalItemLogic();
     }
 
+    private boolean isConjured(Item item) {
+        return item.name.equals("Conjured");
+    }
+
     private boolean isSulfuras(Item item) {
         return item.name.equals("Sulfuras, Hand of Ragnaros");
     }
