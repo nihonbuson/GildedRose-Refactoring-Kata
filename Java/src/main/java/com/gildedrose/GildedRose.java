@@ -29,6 +29,9 @@ class GildedRose {
         if (isBackstagePass(item)) {
             return new UpdateBackstagePassItemLogic();
         }
+        if (isConjured(item)){
+            return new UpdateConjuredItemLogic();
+        }
         return new UpdateNormalItemLogic();
     }
 
