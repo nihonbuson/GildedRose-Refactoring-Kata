@@ -168,6 +168,38 @@ class GildedRoseTest {
         @Nested
         class _sellInが0に近い場合 {
             @Test
+            void _BackstagePassesでsellIn値が11のとき更新するとquality値が1増える() {
+                items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(31, app.items[0].quality);
+            }
+
+            @Test
+            void _BackstagePassesでsellIn値が10のとき更新するとquality値が2増える() {
+                items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(32, app.items[0].quality);
+            }
+
+            @Test
+            void _BackstagePassesでsellIn値が6のとき更新するとquality値が2増える() {
+                items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 6, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(32, app.items[0].quality);
+            }
+
+            @Test
+            void _BackstagePassesでsellIn値が5のとき更新するとquality値が3増える() {
+                items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(33, app.items[0].quality);
+            }
+
+            @Test
             void _BackstagePassesでsellIn値が1のとき更新するとquality値が3増える() {
                 items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 1, 30) };
                 GildedRose app = new GildedRose(items);
