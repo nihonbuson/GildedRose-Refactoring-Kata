@@ -5,6 +5,7 @@ public class CategorizedItemFactory {
 	private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 	private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 	private static final String AGED_BRIE = "Aged Brie";
+	private static final String CONJURED = "Conjured";
 
 	public static ICategorizedItem create(Item item) {
 		if (isSulfuras(item)) {
@@ -13,12 +14,17 @@ public class CategorizedItemFactory {
 			return new AgedBrieItem(item);
 		} else if (isBackstagePass(item)) {
 			return new BackstagePassItem(item);
-		} else if (item.name.equals("Conjured")) {
+		} else if (isConjured(item)) {
 			return new ConjuredItem(item);
 		} else {
 			return new NormalItem(item);
 		}
 	}
+
+	public static boolean isConjured(Item item) {
+		return item.name.equals(CONJURED);
+	}
+
 	private static boolean isSulfuras(Item item) {
 		return item.name.equals(SULFURAS);
 	}
