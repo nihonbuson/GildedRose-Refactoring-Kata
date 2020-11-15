@@ -1,14 +1,20 @@
 package com.gildedrose;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
 
+    Item[] items;
+    @BeforeEach
+    void setup(){
+        items = new Item[] { new Item("foo", 20, 30) };
+    }
+
     @Test
     void _通常商品で更新しても商品名は変わらない() {
-        Item[] items = new Item[] { new Item("foo", 20, 30) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals("foo", app.items[0].name);
