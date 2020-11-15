@@ -19,47 +19,59 @@ class GildedRose {
         }
 
         if (isAgedBrie(item)) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
+            updateAgedBrie(item);
+        } else if (isBackstagePass(item)) {
+            updateBackstagePass(item);
+        } else {
+            updateNormalItem(item);
+        }
+
+    }
+
+    private void updateNormalItem(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
+        item.sellIn = item.sellIn - 1;
+        if (item.sellIn < 0) {
+            if (item.quality > 0) {
+                item.quality = item.quality - 1;
             }
-            item.sellIn = item.sellIn - 1;
-            if (item.sellIn < 0) {
+        }
+    }
+
+    private void updateBackstagePass(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+
+            if (item.sellIn < 11) {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
                 }
             }
-        } else if (isBackstagePass(item)) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
 
-                if (item.sellIn < 11) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
-                }
-
-                if (item.sellIn < 6) {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
-                }
-            }
-            item.sellIn = item.sellIn - 1;
-            if (item.sellIn < 0) {
-                item.quality = item.quality - item.quality;
-            }
-        } else {
-            if (item.quality > 0) {
-                item.quality = item.quality - 1;
-            }
-            item.sellIn = item.sellIn - 1;
-            if (item.sellIn < 0) {
-                if (item.quality > 0) {
-                    item.quality = item.quality - 1;
+            if (item.sellIn < 6) {
+                if (item.quality < 50) {
+                    item.quality = item.quality + 1;
                 }
             }
         }
+        item.sellIn = item.sellIn - 1;
+        if (item.sellIn < 0) {
+            item.quality = item.quality - item.quality;
+        }
+    }
 
+    private void updateAgedBrie(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+        item.sellIn = item.sellIn - 1;
+        if (item.sellIn < 0) {
+            if (item.quality < 50) {
+                item.quality = item.quality + 1;
+            }
+        }
     }
 
     private boolean isSulfuras(Item item) {
