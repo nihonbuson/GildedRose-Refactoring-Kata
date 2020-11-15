@@ -14,10 +14,12 @@ class GildedRose {
     }
 
     private void updateItem(Item item) {
+        ICategorizedItem categorizedItem;
         if (isSulfuras(item)) {
+            categorizedItem = new SulfurasItem(item);
+            categorizedItem.updateItem();
             return;
         }
-        ICategorizedItem categorizedItem;
 
         if (isAgedBrie(item)) {
             categorizedItem = new AgedBrieItem(item);
