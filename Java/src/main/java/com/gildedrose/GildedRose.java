@@ -20,6 +20,8 @@ class GildedRose {
         ICategorizedItem categorizedItem;
 
         if (isAgedBrie(item)) {
+            categorizedItem = new AgedBrieItem(item);
+            categorizedItem.updateItem();
             updateAgedBrie(item);
         } else if (isBackstagePass(item)) {
             updateBackstagePass(item);
