@@ -218,4 +218,54 @@ class GildedRoseTest {
 
     }
 
+    @Nested
+    class _Conjuredの場合 {
+        @BeforeEach
+        void setup() {
+            items = new Item[] { new Item("Conjured", 20, 30) };
+        }
+
+        @Test
+        void _Conjuredで更新しても商品名は変わらない() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals("Conjured", app.items[0].name);
+        }
+
+        @Test
+        void _Conjuredで更新するとsellIn値が1減る() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(19, app.items[0].sellIn);
+        }
+
+        @Test
+        void _Conjuredで更新するとquality値が2減る() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(28, app.items[0].quality);
+        }
+
+        @Nested
+        class _sellInが0に近い場合 {
+            @Test
+            void _ConjuredでsellIn値が1のとき更新するとquality値が2減る() {
+                items = new Item[] { new Item("Conjured", 1, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(28, app.items[0].quality);
+            }
+
+            @Test
+            void _ConjuredでsellIn値が0のとき更新するとquality値が4減る() {
+                items = new Item[] { new Item("Conjured", 0, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(26, app.items[0].quality);
+            }
+        }
+
+    }
+
+
 }
