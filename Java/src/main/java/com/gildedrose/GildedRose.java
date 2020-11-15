@@ -14,6 +14,8 @@ class GildedRose {
     }
 
     private void updateItem(Item item) {
+        ICategorizedItem categorizedItem = CategorizedItemFactory.create(item);
+
         ICategorizedItem categorizedItem;
         if (isSulfuras(item)) {
             categorizedItem = new SulfurasItem(item);
