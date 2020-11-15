@@ -37,6 +37,26 @@ class GildedRoseTest {
             assertEquals(29, app.items[0].quality);
         }
 
+        @Nested
+        class _sellInが0に近い場合{
+            @Test
+            void _通常商品でSellInが1のとき更新するとquality値が1減る() {
+                items = new Item[] { new Item("foo", 1, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(29, app.items[0].quality);
+            }
+
+            @Test
+            void _通常商品でSellInが0のとき更新するとquality値が1減る() {
+                items = new Item[] { new Item("foo", 0, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(28, app.items[0].quality);
+            }
+
+        }
+
     }
 
     @Nested
