@@ -17,17 +17,14 @@ class GildedRose {
         ICategorizedItem categorizedItem;
         if (isSulfuras(item)) {
             categorizedItem = new SulfurasItem(item);
-            categorizedItem.updateItem();
         } else if (isAgedBrie(item)) {
             categorizedItem = new AgedBrieItem(item);
-            categorizedItem.updateItem();
         } else if (isBackstagePass(item)) {
             categorizedItem = new BackstagePassItem(item);
-            categorizedItem.updateItem();
         } else {
             categorizedItem = new NormalItem(item);
-            categorizedItem.updateItem();
         }
+        categorizedItem.updateItem();
 
     }
 
