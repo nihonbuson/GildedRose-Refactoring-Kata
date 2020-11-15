@@ -60,13 +60,6 @@ class GildedRose {
             }
         }
 
-
-        if (isAgedBrie(item)) {
-        } else {
-            if (isBackstagePass(item)) {
-            } else {
-            }
-        }
     }
 
     private boolean isSulfuras(Item item) {
