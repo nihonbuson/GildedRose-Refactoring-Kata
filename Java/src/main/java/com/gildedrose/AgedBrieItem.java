@@ -11,7 +11,7 @@ public class AgedBrieItem implements ICategorizedItem {
 	@Override
 	public void updateItem() {
 		item.increaseQuality();
-		item.sellIn = item.sellIn - 1;
+		item.decreaseSellIn();
 		if (item.sellIn < 0) {
 			item.increaseQuality();
 		}
