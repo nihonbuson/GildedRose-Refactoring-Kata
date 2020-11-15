@@ -55,7 +55,6 @@ class GildedRoseTest {
 
         @Test
         void _Sulfurasで更新してもsellIn値は変わらない() {
-            items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 20, 30) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(20, app.items[0].sellIn);
@@ -63,7 +62,6 @@ class GildedRoseTest {
 
         @Test
         void _Sulfurasで更新してもquality値は変わらない() {
-            items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 20, 30) };
             GildedRose app = new GildedRose(items);
             app.updateQuality();
             assertEquals(30, app.items[0].quality);
