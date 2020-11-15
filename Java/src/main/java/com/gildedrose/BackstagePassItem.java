@@ -10,18 +10,14 @@ public class BackstagePassItem implements ICategorizedItem {
 	@Override
 	public void updateItem() {
 		if (item.quality < 50) {
-			item.quality = item.quality + 1;
+			item.increaseQuality();
 
 			if (item.sellIn < 11) {
-				if (item.quality < 50) {
-					item.quality = item.quality + 1;
-				}
+				item.increaseQuality();
 			}
 
 			if (item.sellIn < 6) {
-				if (item.quality < 50) {
-					item.quality = item.quality + 1;
-				}
+				item.increaseQuality();
 			}
 		}
 		item.sellIn = item.sellIn - 1;
@@ -30,4 +26,5 @@ public class BackstagePassItem implements ICategorizedItem {
 		}
 
 	}
+
 }
