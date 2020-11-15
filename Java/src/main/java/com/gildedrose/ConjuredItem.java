@@ -10,16 +10,11 @@ public class ConjuredItem implements ICategorizedItem {
 	@Override
 	public void updateItem() {
 		item.decreaseQuality();
-		if(item.name.equals("Conjured")){
-			item.decreaseQuality();
-		}
+		item.decreaseQuality();
 		item.decreaseSellIn();
 		if (item.sellIn < 0) {
 			item.decreaseQuality();
-			if(item.name.equals("Conjured")){
-				item.decreaseQuality();
-			}
+			item.decreaseQuality();
 		}
-
 	}
 }
