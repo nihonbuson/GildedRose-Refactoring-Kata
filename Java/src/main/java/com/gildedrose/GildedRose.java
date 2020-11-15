@@ -17,6 +17,7 @@ class GildedRose {
         if (isSulfuras(item)) {
             return;
         }
+        ICategorizedItem categorizedItem;
 
         if (isAgedBrie(item)) {
             updateAgedBrie(item);
