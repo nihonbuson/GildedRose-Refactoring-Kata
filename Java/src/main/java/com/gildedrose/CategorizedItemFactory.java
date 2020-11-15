@@ -14,7 +14,7 @@ public class CategorizedItemFactory {
 		} else if (isBackstagePass(item)) {
 			return new BackstagePassItem(item);
 		} else if (item.name.equals("Conjured")) {
-			return new NormalItem(item);
+			return new ConjuredItem(item);
 		} else {
 			return new NormalItem(item);
 		}
