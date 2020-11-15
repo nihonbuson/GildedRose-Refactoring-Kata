@@ -22,7 +22,6 @@ class GildedRose {
         if (isAgedBrie(item)) {
             categorizedItem = new AgedBrieItem(item);
             categorizedItem.updateItem();
-            updateAgedBrie(item);
         } else if (isBackstagePass(item)) {
             updateBackstagePass(item);
         } else {
@@ -63,9 +62,6 @@ class GildedRose {
         if (item.sellIn < 0) {
             item.quality = item.quality - item.quality;
         }
-    }
-
-    private void updateAgedBrie(Item item) {
     }
 
     private boolean isSulfuras(Item item) {
