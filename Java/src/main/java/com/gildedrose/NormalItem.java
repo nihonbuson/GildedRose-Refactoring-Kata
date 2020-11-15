@@ -12,13 +12,17 @@ public class NormalItem implements ICategorizedItem {
 		if (item.quality > 0) {
 			descreaseQuality();
 		}
-		item.sellIn = item.sellIn - 1;
+		decreaseSellIn();
 		if (item.sellIn < 0) {
 			if (item.quality > 0) {
 				descreaseQuality();
 			}
 		}
 
+	}
+
+	private void decreaseSellIn() {
+		item.sellIn = item.sellIn - 1;
 	}
 
 	private void descreaseQuality() {
