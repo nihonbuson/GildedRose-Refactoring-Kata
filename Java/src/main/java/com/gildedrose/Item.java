@@ -28,4 +28,10 @@ public class Item {
             quality = quality - 1;
         }
     }
+
+    void increaseQuality() {
+        if (quality < 50) {
+            quality = quality + 1;
+        }
+    }
 }
