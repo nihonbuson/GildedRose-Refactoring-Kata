@@ -10,22 +10,15 @@ public class NormalItem implements ICategorizedItem {
 	@Override
 	public void updateItem() {
 		if (item.quality > 0) {
-			descreaseQuality();
+			item.decreaseQuality();
 		}
-		decreaseSellIn();
+		item.decreaseSellIn();
 		if (item.sellIn < 0) {
 			if (item.quality > 0) {
-				descreaseQuality();
+				item.decreaseQuality();
 			}
 		}
 
 	}
 
-	private void decreaseSellIn() {
-		item.sellIn = item.sellIn - 1;
-	}
-
-	private void descreaseQuality() {
-		item.quality = item.quality - 1;
-	}
 }
