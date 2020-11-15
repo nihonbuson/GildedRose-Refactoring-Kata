@@ -137,4 +137,53 @@ class GildedRoseTest {
 
     }
 
+    @Nested
+    class _BackstagePassesの場合 {
+        @BeforeEach
+        void setup() {
+            items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 20, 30) };
+        }
+
+        @Test
+        void _BackstagePassesで更新しても商品名は変わらない() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        }
+
+        @Test
+        void _BackstagePassesで更新するとsellIn値が1減る() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(19, app.items[0].sellIn);
+        }
+
+        @Test
+        void _BackstagePassesで更新するとquality値が1増える() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(31, app.items[0].quality);
+        }
+
+        @Nested
+        class _sellInが0に近い場合 {
+            @Test
+            void _BackstagePassesでsellIn値が1のとき更新するとquality値が3増える() {
+                items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 1, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(33, app.items[0].quality);
+            }
+
+            @Test
+            void _BackstagePassesでsellIn値が0のとき更新するとquality値が0になる() {
+                items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(0, app.items[0].quality);
+            }
+        }
+
+    }
+
 }
