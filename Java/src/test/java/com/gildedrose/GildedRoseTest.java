@@ -115,6 +115,26 @@ class GildedRoseTest {
             app.updateQuality();
             assertEquals(31, app.items[0].quality);
         }
+
+        @Nested
+        class _sellInが0に近い場合 {
+            @Test
+            void _AgedBrieでsellIn値が1のとき更新するとquality値が1増える() {
+                items = new Item[] { new Item("Aged Brie", 1, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(31, app.items[0].quality);
+            }
+
+            @Test
+            void _AgedBrieでsellIn値が0のとき更新するとquality値が2増える() {
+                items = new Item[] { new Item("Aged Brie", 0, 30) };
+                GildedRose app = new GildedRose(items);
+                app.updateQuality();
+                assertEquals(32, app.items[0].quality);
+            }
+        }
+
     }
 
 }
