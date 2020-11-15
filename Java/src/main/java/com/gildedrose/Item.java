@@ -14,22 +14,22 @@ public class Item {
         this.quality = quality;
     }
 
-   @Override
-   public String toString() {
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    void decreaseSellIn() {
+    public void decreaseSellIn() {
         sellIn = sellIn - 1;
     }
 
-    void decreaseQuality() {
+    public void decreaseQuality() {
         if (quality > 0) {
             quality = quality - 1;
         }
     }
 
-    void increaseQuality() {
+    public void increaseQuality() {
         if (quality < 50) {
             quality = quality + 1;
         }

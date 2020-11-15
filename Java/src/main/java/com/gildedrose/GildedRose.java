@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.categorizeditem.ICategorizedItem;
+
 class GildedRose {
     Item[] items;
 

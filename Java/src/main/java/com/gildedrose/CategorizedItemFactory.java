@@ -1,5 +1,12 @@
 package com.gildedrose;
 
+import com.gildedrose.categorizeditem.AgedBrieItem;
+import com.gildedrose.categorizeditem.BackstagePassItem;
+import com.gildedrose.categorizeditem.ConjuredItem;
+import com.gildedrose.categorizeditem.ICategorizedItem;
+import com.gildedrose.categorizeditem.NormalItem;
+import com.gildedrose.categorizeditem.SulfurasItem;
+
 public class CategorizedItemFactory {
 
 	private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
