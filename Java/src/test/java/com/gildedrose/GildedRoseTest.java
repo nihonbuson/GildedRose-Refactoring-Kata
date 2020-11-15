@@ -88,4 +88,33 @@ class GildedRoseTest {
         }
     }
 
+    @Nested
+    class _AgedBrieの場合 {
+        @BeforeEach
+        void setup() {
+            items = new Item[] { new Item("Aged Brie", 20, 30) };
+        }
+
+        @Test
+        void _AgedBrieで更新しても商品名は変わらない() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals("Aged Brie", app.items[0].name);
+        }
+
+        @Test
+        void _AgedBrieで更新するとsellIn値が1減る() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(19, app.items[0].sellIn);
+        }
+
+        @Test
+        void _AgedBrieで更新するとquality値が1増える() {
+            GildedRose app = new GildedRose(items);
+            app.updateQuality();
+            assertEquals(31, app.items[0].quality);
+        }
+    }
+
 }
