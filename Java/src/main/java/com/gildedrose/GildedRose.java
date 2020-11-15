@@ -18,10 +18,7 @@ class GildedRose {
         if (isSulfuras(item)) {
             categorizedItem = new SulfurasItem(item);
             categorizedItem.updateItem();
-            return;
-        }
-
-        if (isAgedBrie(item)) {
+        } else if (isAgedBrie(item)) {
             categorizedItem = new AgedBrieItem(item);
             categorizedItem.updateItem();
         } else if (isBackstagePass(item)) {
