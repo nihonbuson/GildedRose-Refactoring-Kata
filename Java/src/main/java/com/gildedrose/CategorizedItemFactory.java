@@ -13,6 +13,8 @@ public class CategorizedItemFactory {
 			return new AgedBrieItem(item);
 		} else if (isBackstagePass(item)) {
 			return new BackstagePassItem(item);
+		} else if (item.name.equals("Conjured")) {
+			return new NormalItem(item);
 		} else {
 			return new NormalItem(item);
 		}
